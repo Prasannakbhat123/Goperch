@@ -14,6 +14,7 @@ import { Helmet } from 'react-helmet-async'
 import { Link, useParams } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
+import { ProjectImage } from '@/components/ui/project-image'
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
 import { getProjectBySlug, getRelatedProjects } from '@/lib/projects'
 
@@ -51,9 +52,17 @@ export function ProjectPage() {
         transition={{ duration: 0.5 }}
       >
         {/* Hero Banner */}
-        <section className={`relative overflow-hidden bg-gradient-to-br ${project.coverGradient} pt-24`}>
-          <div className="absolute inset-0 bg-black/20" />
-          <div className="relative mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+        <section className="relative overflow-hidden pt-24">
+          <div className="absolute inset-0">
+            <ProjectImage
+              src={project.coverImage}
+              alt={project.title}
+              className="h-full w-full"
+              overlay="dark"
+              loading="eager"
+            />
+          </div>
+          <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
             <Link
               to="/#projects"
               className="mb-8 inline-flex cursor-pointer items-center gap-2 text-sm text-white/80 transition-colors hover:text-white"
@@ -170,14 +179,13 @@ export function ProjectPage() {
           <ScrollReveal>
             <h2 className="mb-6 font-display text-2xl font-bold text-gp-text">Screenshots Gallery</h2>
             <div className="mb-16 grid gap-4 md:grid-cols-3">
-              {[1, 2, 3].map((n) => (
-                <div
-                  key={n}
-                  className={`flex h-48 items-center justify-center rounded-xl bg-gradient-to-br ${project.coverGradient}`}
-                  style={{ opacity: 1 - n * 0.1 }}
-                >
-                  <span className="font-mono text-sm text-white/60">Screenshot {n}</span>
-                </div>
+              {project.galleryImages.map((image, i) => (
+                <ProjectImage
+                  key={i}
+                  src={image}
+                  alt={`${project.title} screenshot ${i + 1}`}
+                  className="h-48 rounded-xl ring-1 ring-gp-border"
+                />
               ))}
             </div>
           </ScrollReveal>
@@ -240,8 +248,10 @@ export function ProjectPage() {
                     to={`/projects/${rp.slug}`}
                     className="group flex cursor-pointer items-center gap-4 rounded-2xl border border-gp-border bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg dark:bg-gp-card"
                   >
-                    <div
-                      className={`h-16 w-16 shrink-0 rounded-xl bg-gradient-to-br ${rp.coverGradient}`}
+                    <ProjectImage
+                      src={rp.coverImage}
+                      alt={rp.title}
+                      className="h-16 w-16 shrink-0 rounded-xl"
                     />
                     <div className="flex-1">
                       <h3 className="font-heading font-semibold text-gp-text group-hover:text-gp-accent">

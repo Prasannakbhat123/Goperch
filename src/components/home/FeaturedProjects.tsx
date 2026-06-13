@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { Button } from '@/components/ui/button'
+import { ProjectImage } from '@/components/ui/project-image'
 import { ScrollReveal } from '@/components/ui/scroll-reveal'
 import { SectionHeader } from '@/components/ui/section-header'
 import { PROJECTS } from '@/lib/projects'
@@ -27,16 +28,23 @@ export function FeaturedProjects() {
                 transition={{ duration: 0.3 }}
                 className="group overflow-hidden rounded-2xl border border-gp-border bg-white shadow-sm transition-shadow hover:shadow-xl dark:bg-gp-card"
               >
-                <div
-                  className={`relative h-48 bg-gradient-to-br ${project.coverGradient} p-6`}
+                <ProjectImage
+                  src={project.coverImage}
+                  alt={project.title}
+                  className="h-48"
+                  overlay="dark"
                 >
-                  <span className="inline-block rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
-                    {project.industry}
-                  </span>
-                  <div className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
-                    <ArrowUpRight className="h-5 w-5 text-white" />
+                  <div className="flex h-full flex-col p-6">
+                    <span className="inline-block w-fit rounded-full bg-white/20 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                      {project.industry}
+                    </span>
+                    <div className="mt-auto flex justify-end">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 opacity-0 backdrop-blur-sm transition-opacity group-hover:opacity-100">
+                        <ArrowUpRight className="h-5 w-5 text-white" />
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </ProjectImage>
 
                 <div className="p-6">
                   <h3 className="font-heading text-lg font-semibold text-gp-text">

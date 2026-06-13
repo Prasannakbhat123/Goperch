@@ -5,7 +5,8 @@ export interface Project {
   industry: string
   clientType: string
   tech: string[]
-  coverGradient: string
+  coverImage: string
+  galleryImages: string[]
   overview: string
   problem: string
   solution: string
@@ -28,7 +29,13 @@ export const PROJECTS: Project[] = [
     industry: 'Manufacturing',
     clientType: 'Mid-Market Enterprise',
     tech: ['Next.js', 'FastAPI', 'PostgreSQL'],
-    coverGradient: 'from-blue-600 via-indigo-600 to-violet-700',
+    coverImage:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d227?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80',
+    ],
     overview:
       'GoPerch designed and built a comprehensive ERP suite for a manufacturing enterprise struggling with fragmented systems. The platform centralizes operations across departments with real-time visibility and role-based access control.',
     problem:
@@ -87,7 +94,13 @@ export const PROJECTS: Project[] = [
     industry: 'Retail & Distribution',
     clientType: 'Multi-Location Retailer',
     tech: ['React', 'Node.js', 'RFID Integration'],
-    coverGradient: 'from-emerald-500 via-teal-600 to-cyan-700',
+    coverImage:
+      'https://xbsoftware.com/wp-content/uploads/2023/01/smart-inventory-management-system-fb.jpg',
+    galleryImages: [
+      'https://xbsoftware.com/wp-content/uploads/2023/01/smart-inventory-management-system-fb.jpg',
+      'https://images.unsplash.com/photo-1566576911225-4909245a072a?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1587293852727-36cdbf431166?auto=format&fit=crop&w=800&q=80',
+    ],
     overview:
       'A cloud-native inventory management platform that gives retail operators real-time stock visibility across warehouses and storefronts, powered by RFID scanning and predictive reorder algorithms.',
     problem:
@@ -146,7 +159,13 @@ export const PROJECTS: Project[] = [
     industry: 'Outdoor & Conservation',
     clientType: 'Property Management Company',
     tech: ['Embedded Systems', 'IoT', 'Cloud Dashboard'],
-    coverGradient: 'from-amber-500 via-orange-600 to-red-700',
+    coverImage:
+      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1501599646475-65a19a7ff224?auto=format&fit=crop&w=800&q=80',
+    ],
     overview:
       'An end-to-end monitoring solution combining custom firmware for trail cameras, cellular connectivity, and a cloud dashboard for remote wildlife and property surveillance across vast outdoor areas.',
     problem:
@@ -205,7 +224,13 @@ export const PROJECTS: Project[] = [
     industry: 'Professional Services',
     clientType: 'Consulting Firm',
     tech: ['LLMs', 'Vector Database', 'RAG'],
-    coverGradient: 'from-violet-500 via-purple-600 to-fuchsia-700',
+    coverImage:
+      'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1620712943543-bcc4688fb128?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1535378628566-06699a7f3c6a?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=800&q=80',
+    ],
     overview:
       'A secure AI-powered assistant that helps teams instantly access institutional knowledge, generate reports, and automate repetitive document workflows using retrieval-augmented generation.',
     problem:
@@ -264,7 +289,12 @@ export const PROJECTS: Project[] = [
     industry: 'Logistics & Transportation',
     clientType: 'Regional Logistics Provider',
     tech: ['Next.js', 'FastAPI', 'Docker'],
-    coverGradient: 'from-slate-600 via-blue-700 to-indigo-800',
+    coverImage: 'https://avsofttech.com/assets/img/logisticsERP1.jpg',
+    galleryImages: [
+      'https://avsofttech.com/assets/img/logisticsERP1.jpg',
+      'https://images.unsplash.com/photo-1578575437130-5279883aaf08?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1586528116311-ad8dd38c918d?auto=format&fit=crop&w=800&q=80',
+    ],
     overview:
       'A purpose-built logistics ERP that unifies fleet management, route optimization, shipment tracking, and warehouse operations for a growing regional logistics provider.',
     problem:
