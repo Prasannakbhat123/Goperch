@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-gp-primary: #ffffff;
+  --color-gp-secondary: #f8f9fb;
+  --color-gp-card: #ffffff;
+  --color-gp-text: #111111;
+  --color-gp-muted: #6b7280;
+  --color-gp-border: #e5e7eb;
+  --color-gp-accent: #2563eb;
+  --color-gp-accent-hover: #1d4ed8;
+
+  --font-display: "Clash Display", "Space Grotesk", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-accordion-down: accordion-down 0.3s ease-out;
+  --animate-accordion-up: accordion-up 0.3s ease-out;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+/* Dark mode overrides */
+.dark {
+  --color-gp-primary: #0a0a0a;
+  --color-gp-secondary: #111111;
+  --color-gp-card: #141414;
+  --color-gp-text: #f5f5f5;
+  --color-gp-muted: #9ca3af;
+  --color-gp-border: #262626;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-gp-primary);
+  color: var(--color-gp-text);
+  overflow-x: hidden;
+}
+
+a[href],
+button:not(:disabled),
+[role="button"],
+label[for],
+select,
+summary {
+  cursor: pointer;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-gp-accent) 20%, transparent);
+  color: var(--color-gp-text);
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
